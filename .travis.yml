@@ -9,7 +9,9 @@ python:
 
 install:
    - pip install pep8
+   - pip install ansible
 
 script:
    - find . -name \*.py -exec pep8 --ignore=E402 {} +
    - python test_math_operations.py
+   - ansible-playbook playbook.yml

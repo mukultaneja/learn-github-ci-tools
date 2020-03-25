@@ -1,0 +1,12 @@
+
+- name: Ansible Playbook
+  hosts: localhost
+
+  tasks:
+    - name: run hello-world
+      script: ./hello-world.sh
+      register: output
+
+    - name: print hello-world output
+      debug:
+        msg: '{{ output }}'
