@@ -7,7 +7,9 @@ python:
   - "3.7"
   - "3.8"
 
-install: skip
-#   - pip install -r requirements.txt
+install:
+   - pip install pep8
 
-script: python test_math_operations.py
+script:
+   - find . -name \*.py -exec pep8 --ignore=E402 {} +
+   - python test_math_operations.py
