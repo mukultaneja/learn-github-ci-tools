@@ -9,7 +9,7 @@ install:
    - pip install ansible
 
 before_script:
-   - find . -name \*.py -exec pycodestyle --ignore=E402 {} +
+   - cd modules && find . -name \*.py -exec pycodestyle --ignore=E402 {} + && cd ..
    - ansible-playbook --syntax-check playbook.yml
 
 script:
