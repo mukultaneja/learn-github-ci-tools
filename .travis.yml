@@ -13,5 +13,5 @@ before_script:
    - ansible-playbook --syntax-check playbook.yml
 
 script:
-   - python test_math_operations.py
+   - cd modules && python test_math_operations.py cd ..
    - ansible-playbook playbook.yml
