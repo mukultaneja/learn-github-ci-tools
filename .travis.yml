@@ -5,11 +5,11 @@ python:
   - "3.8"
 
 install:
-   - pip install pep8
+   - pip install pycodestyle
    - pip install ansible
 
 before_script:
-   - find . -name \modules/*.py -exec pep8 --ignore=E402 {} +
+   - find . -name \*.py -exec pycodestyle --ignore=E402 {} +
    - ansible-playbook --syntax-check playbook.yml
 
 script:
