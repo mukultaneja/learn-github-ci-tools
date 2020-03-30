@@ -4,18 +4,15 @@ python:
   - "3.7"
   - "3.8"
 
-jobs:
-  include:
-    - stage: test
-      if: type = push AND pull_request
-      install:
-         - pip install pycodestyle
-         - pip install ansible
+if: type = push AND pull_request
+install:
+   - pip install pycodestyle
+   - pip install ansible
 
-      before_script:
-         - find . -name \*.py -exec pycodestyle --ignore=E402 {} +
-         - ansible-playbook --syntax-check playbook.yml
+before_script:
+   - find . -name \*.py -exec pycodestyle --ignore=E402 {} +
+   - ansible-playbook --syntax-check playbook.yml
 
-      script:
-         - python test_math_operations.py
-         - ansible-playbook playbook.yml
+script:
+   - python test_math_operations.py
+   - ansible-playbook playbook.yml
